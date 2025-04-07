@@ -62,5 +62,24 @@ function renderList() { //оновити list в HTML
         li.appendChild(div);
         listProduct.appendChild(li);
     })
+}
+
+function addProduct(productData) {
+    const newProduct = {
+        id: generateId(),
+        name: productData.productName,
+        price: productData.productPrice,
+        category: productData.productCategory,
+        image: productData.productImage,
+        createdAt: getCurrentDate(),
+        updatedAt: getCurrentDate()
+    };
+
+    products = products.push(newProduct);
+    // оновити список на ui
+    // оновити фільтри
+    // оновити ціну
+
+    return newProduct;
 
 }
