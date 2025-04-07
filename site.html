@@ -13,7 +13,7 @@
     <div id="filters"></div>
     <div id="sorters"></div>
     <div id="product-list" class="product-list"></div>
-    <button id="add-btn" class="add-btn">Додати новий товар</button>
+    <button class="add-btn" onclick = "addProduct()" >Додати новий товар</button>
 </div>
 <div id="modal" style="display:none;">
     <h2>Новий товар</h2>
@@ -21,7 +21,7 @@
     <label>Назва товару: <input type="text" id="product-name"></label><br>
     <label>Ціна товару: <input type="text" id="product-price"></label><br>
     <label>Категорія товару: <input type="text" id="product-category"></label><br>
-    <label>Зображення (URL): <input type="text" id="product-image"></label><br>
+    <label>Зображення (URL): <input type="text" id="product-image" src="./images/img.png"></label><br>
     <button id="save-product">Зберегти</button>
     <button id="close-modal">Закрити</button>
 </div>
