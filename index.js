@@ -10,8 +10,6 @@ let products = Array.from(listProduct.children).map(li => {
         cost: div.querySelector(".cost").textContent,
         category: div.querySelector(".category").textContent,
         image: div.querySelector(".img").src,
-        btnDelete: div.querySelector(".btnDelete").button,
-        btnEdit: div.querySelector(".btnEdit").button
     };
 });
 
@@ -64,18 +62,22 @@ function renderList() { //оновити list в HTML
     })
 }
 
+function generateId(){
+    return products.length;
+}
+
 function addProduct(productData) {
     const newProduct = {
         id: generateId(),
-        name: productData.productName,
-        price: productData.productPrice,
-        category: productData.productCategory,
-        image: productData.productImage,
-        createdAt: getCurrentDate(),
-        updatedAt: getCurrentDate()
+        name: productData.name,
+        price: productData.price,
+        category: productData.category,
+        image: productData.image,
     };
 
     products = products.push(newProduct);
+
+    renderList();
     // оновити список на ui
     // оновити фільтри
     // оновити ціну
