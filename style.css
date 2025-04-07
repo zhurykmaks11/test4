@@ -1,14 +1,8 @@
 header {
     background-color: goldenrod;
     color: white;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-.container {
-    width: 1200px;
-    margin: 200px;
     padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .product-id{
@@ -16,4 +10,37 @@ header {
 }
 #modal{
     display: none;
+}
+#mainList {
+    list-style-type: none;
+    margin: 20px 50px;
+    display: block;
+    text-align: justify;
+    position: relative;
+}
+ul li .product-item{
+        background-color: black;
+        color: white;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ae6d14;
+
+        margin: 80px;
+    }
+
+
+
+.product-id{
+    background-color: goldenrod;
+}
+
+img {
+    width: 250px;
+    height: auto;
+    border: #272909 1px solid;
+}
+
+.shadow-type-1 {
+    box-shadow: red -10px -10px 5px;
 }

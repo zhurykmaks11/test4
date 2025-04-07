@@ -19,7 +19,6 @@ products[0].id = 5;
 
 console.log(products);
 
-renderList()
 
 function renderList() { //оновити list в HTML
     listProduct.innerHTML = "";
