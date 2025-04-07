@@ -3,13 +3,13 @@
 const listProduct = document.getElementById("mainList");
 
 let products = Array.from(listProduct.children).map(li => {
-    const div = li.querySelector(".item");
+    const div = li.querySelector(".product-item");
     return {
         id: div.querySelector(".product-id").textContent,
-        name: div.querySelector(".name").textContent,
-        cost: div.querySelector(".cost").textContent,
-        category: div.querySelector(".category").textContent,
-        image: div.querySelector(".img").src,
+        name: div.querySelector(".product-name").textContent,
+        cost: div.querySelector(".product-price").textContent,
+        category: div.querySelector(".product-category").textContent,
+        image: div.querySelector(".product-img").src,
     };
 });
 
