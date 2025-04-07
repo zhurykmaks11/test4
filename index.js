@@ -5,7 +5,7 @@ const listProduct = document.getElementById("mainList");
 let products = Array.from(listProduct.children).map(li => {
     const div = li.querySelector(".item");
     return {
-        id: div.querySelector(".id").textContent,
+        id: div.querySelector(".product-id").textContent,
         name: div.querySelector(".name").textContent,
         cost: div.querySelector(".cost").textContent,
         category: div.querySelector(".category").textContent,
@@ -21,7 +21,7 @@ function renderList() { //оновити list в HTML
         div.classList.add("item");
 
         const id = document.createElement("span");
-        id.classList.add("id")
+        id.classList.add("product-id")
         id.textContent = item.id;
 
         const name = document.createElement("span");
