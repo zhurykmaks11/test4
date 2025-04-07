@@ -9,9 +9,17 @@ let products = Array.from(listProduct.children).map(li => {
         name: div.querySelector(".product-name").textContent,
         cost: div.querySelector(".product-price").textContent,
         category: div.querySelector(".product-category").textContent,
-        image: div.querySelector(".product-img").src,
+        image: div.querySelector("img").src,
     };
 });
+
+console.log(products);
+
+products[0].id = 5;
+
+console.log(products);
+
+renderList()
 
 function renderList() { //оновити list в HTML
     listProduct.innerHTML = "";
