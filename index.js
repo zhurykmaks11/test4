@@ -75,21 +75,23 @@ function generateId(){
 }
 
 function addProduct(productData) {
-    const newProduct = {
-        id: generateId(),
-        name: productData.name,
-        price: productData.price,
-        category: productData.category,
-        image: productData.image,
-    };
-
-    products = products.push(newProduct);
-
-    renderList();
-    // оновити список на ui
-    // оновити фільтри
-    // оновити ціну
-
-    return newProduct;
+    modal = document.getElementById("modal");
+    modal.classList.add()
+    // const newProduct = {
+    //     id: generateId(),
+    //     name: productData.name,
+    //     price: productData.price,
+    //     category: productData.category,
+    //     image: productData.image,
+    // };
+    //
+    // products = products.push(newProduct);
+    //
+    // renderList();
+    // // оновити список на ui
+    // // оновити фільтри
+    // // оновити ціну
+    //
+    // return newProduct;
 
 }
