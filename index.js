@@ -74,24 +74,30 @@ function generateId(){
     return products.length;
 }
 
-function addProduct(productData) {
-    modal = document.getElementById("modal");
-    modal.classList.add()
-    // const newProduct = {
-    //     id: generateId(),
-    //     name: productData.name,
-    //     price: productData.price,
-    //     category: productData.category,
-    //     image: productData.image,
-    // };
-    //
-    // products = products.push(newProduct);
-    //
-    // renderList();
-    // // оновити список на ui
-    // // оновити фільтри
-    // // оновити ціну
-    //
-    // return newProduct;
+function addProduct() {
+    let div = document.getElementById("modal");
+    div.style.display = "block";
+}
 
+function saveProduct(){
+    let div = document.querySelector("#modal");
+    let newProduct = {
+        id: div.querySelector("#product-id").value.trim(),
+        name: div.querySelector("#product-name").value.trim(),
+        price: div.querySelector("#product-price").value.trim(),
+        category: div.querySelector("#product-category").value.trim(),
+        image: "./images/img.png",
+    };
+
+    products.push(newProduct);
+
+    renderList();
+    // оновити фільтри
+    // оновити ціну
+    div.style.display = "none";
+}
+
+function closeProduct(){
+    let div = document.getElementById("modal");
+    div.style.display = "none";
 }
