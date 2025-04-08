@@ -50,6 +50,7 @@ function renderList() { //оновити list в HTML
         btnEdit.innerHTML = "Редагувати"
         btnEdit.onclick = () => editProduct(item.id);
 
+
         li.appendChild(id);
         li.appendChild(name);
         li.appendChild(cost);
@@ -102,15 +103,10 @@ function editProduct(productId){
     let div = document.getElementById("modal-edit");
     div.style.display = "block";
 
-    let btnSave = document.createElement("button");
-    btnSave.classList.add("save-product");
-    btnSave.innerHTML = "Зберегти";
-    console.log("ID before: " + productId);
+    let btnSave = div.querySelector(".save-product")
     btnSave.onclick = () => saveEditedProduct(productId);
 
-    let btnClose = document.createElement("button");
-    btnClose.classList.add(".close-modal");
-    btnClose.innerHTML = "Зберегти";
+    let btnClose = div.querySelector(".close-modal")
     btnClose.onclick = () => closeEditProduct();
 
     let productToEdit = products.find(product => product.id === productId);
@@ -129,7 +125,7 @@ function editProduct(productId){
 }
 
 function saveEditedProduct(productId){
-    console.log("ID after: " + productId);
+    console.log("ID after: " + productId); //чомусь не передається атрибут productId
     let div = document.querySelector("#modal-edit");
 
     let editedProduct = {
@@ -139,13 +135,6 @@ function saveEditedProduct(productId){
         category: div.querySelector(".product-category").value.trim(),
         image: "./images/img.png",
     };
-    // let editedProduct = {
-    //     id: "0",
-    //     name: "chiken",
-    //     price: 9999,
-    //     category: "food",
-    //     image: "./images/img.png",
-    // };
     console.log(productId)
     let index = products.findIndex(product => product.id === productId);
     if (index !== -1) {
