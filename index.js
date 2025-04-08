@@ -91,6 +91,25 @@ function generateId(){
 
     return step.toString();
 }
+
+function myFunction() {
+    var x = document.getElementById("snackbar");
+
+    // Add the "show" class to DIV
+    x.className = "show";
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+function myFunctionedit() {
+    var x = document.getElementById("snackbar1");
+
+    // Add the "show" class to DIV
+    x.className = "show";
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
 //delete
 function deleteProduct(id){
     // console.log(id);
@@ -121,6 +140,7 @@ function deleteProduct(id){
             renderList();
         }, 400);
     }
+    myFunction()
     renderAll()
     renderList();
     closeEditProduct()
@@ -179,6 +199,7 @@ function saveEditedProduct(productId){
     filteredProducts = [...products];
     renderAll()
     renderList();
+    myFunctionedit()
     // оновити фільтри
     // оновити ціну
     div.style.display = "none";
@@ -254,6 +275,7 @@ function renderFilters() {
 
     const resetBtn = document.createElement("button");
     resetBtn.textContent = "Скинути фільтр";
+    resetBtn.classList.add("btn-reset");
     resetBtn.onclick = () => {
         filteredProducts = [...products];
         renderList();
@@ -272,6 +294,7 @@ function renderSorters() {
 
     const btnPrice = document.createElement("button");
     btnPrice.textContent = "Сортувати за ціною";
+    btnPrice.classList.add("btn-renPrice");
     btnPrice.onclick = () => {
         filteredProducts.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
         renderList();
@@ -279,6 +302,7 @@ function renderSorters() {
 
     const btnCreate = document.createElement("button");
     btnCreate.textContent = "Сортувати за ID";
+    btnCreate.classList.add("btn-renID");
     btnCreate.onclick = () => {
         filteredProducts.sort((a, b) => parseInt(a.id) - parseInt(b.id));
         renderList();
@@ -286,6 +310,7 @@ function renderSorters() {
 
     const btnReset = document.createElement("button");
     btnReset.textContent = "Скинути сортування";
+    btnReset.classList.add("btn-renReset");
     btnReset.onclick = () => {
         filteredProducts = [...products];
         renderList();
