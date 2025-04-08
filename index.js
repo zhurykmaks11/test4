@@ -200,11 +200,16 @@ function saveProduct(){
         category.reportValidity();
         return;
     }
+
+    let productName =  div.querySelector(".product-name");
+    let productPrice = div.querySelector(".product-price")
+    let productCategory = div.querySelector(".product-category");
+
     let newProduct = {
         id: generateId(),
-        name: div.querySelector(".product-name").value.trim(),
-        price: div.querySelector(".product-price").value.trim(),
-        category: div.querySelector(".product-category").value.trim(),
+        name: productName.value.trim(),
+        price: productPrice.value.trim(),
+        category: productCategory.value.trim(),
         image: "./images/img.png",
     };
 
@@ -214,6 +219,9 @@ function saveProduct(){
     renderList();
     // оновити фільтри
     // оновити ціну
+    productName.value = "";
+    productPrice.value = "";
+    productCategory.value = "";
     div.style.display = "none";
 }
 
@@ -236,6 +244,7 @@ function renderFilters() {
     uniqueCategories.forEach(cat => {
         const btn = document.createElement("button");
         btn.textContent = cat;
+        btn.classList.add("btn-filter");
         btn.onclick = () => {
             filteredProducts = products.filter(p => p.category === cat);
             renderList();
