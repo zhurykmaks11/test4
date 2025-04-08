@@ -65,6 +65,7 @@ function renderList() { //оновити list в HTML
 function addProduct() {
     let div = document.getElementById("modal-add");
     div.style.display = "block";
+    closeEditProduct()
 }
 
 function generateId(){
@@ -97,6 +98,7 @@ function deleteProduct(id){
     // оновити ціну
 
     renderList();
+    closeEditProduct()
 }
 
 function editProduct(productId){
@@ -115,9 +117,9 @@ function editProduct(productId){
     let price = div.querySelector(".product-price");
     let category = div.querySelector(".product-category");
 
-    name.innerHTML = productToEdit.name;
-    price.innerHTML = productToEdit.price;
-    category.innerHTML = productToEdit.category;
+    name.value = productToEdit.name;
+    price.value = productToEdit.price;
+    category.value = productToEdit.category;
 
     // оновити фільтри
     // оновити ціну
