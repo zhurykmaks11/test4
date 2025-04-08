@@ -1,30 +1,36 @@
-body{
+body {
     background-color: #e6c0b9;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
+
 header {
     padding: 20px;
     background-color: goldenrod;
     color: white;
     box-shadow: 5px 5px 5px goldenrod;
     margin: 20px;
-
 }
-#modal-add{
-    width: 500px;
-    margin: 20px;
+
+#modal-add,
+#modal-edit {
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
     background-color: Goldenrod;
     padding: 10px;
     display: none;
-    float: left;
     box-shadow: red 1px 1px 10px;
     border-radius: 5px;
     color: white;
 }
-.container{
-    width: 500px;
-    margin: 20px;
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
     gap: 10px;
     display: flex;
     padding: 40px;
@@ -32,120 +38,127 @@ header {
     flex-direction: column;
     box-shadow: red 1px 1px 10px;
     border-radius: 5px;
-    .add-btn{
-        width: 200px;
-        border-radius: 5px;
-        background: coral;
-        box-shadow: red 1px 1px 10px;
-        color: white;
-    }
 }
-#modal-edit{
-    margin: 20px;
+
+.add-btn {
+    width: 100%;
+    max-width: 200px;
+    margin: 20px 0;
     padding: 10px;
-    display: none;
-    width: 500px;
-    border-radius: 5px;
     background: coral;
     box-shadow: red 1px 1px 10px;
     color: white;
-
+    border-radius: 5px;
+    cursor: pointer;
 }
+
 #mainList {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
     list-style-type: none;
-    margin: 20px 50px;
+    padding: 20px;
+    justify-content: center;
+}
 
-}
-li {
-    margin-bottom: 30px;
-}
-.product-item{
+.product-item {
     background-color: Goldenrod;
     padding: 10px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
     border: 1px solid #ae6d14;
     width: 300px;
     height: auto;
     color: white;
     border-radius: 5px;
     box-shadow: #df0404 0 0 30px;
+    transition: transform 0.3s ease;
 }
-.save-product{
-    background-color: #c57569;
-    width: 100px;
-    height: 30px;
-    margin-right: 50px;
 
-    border-radius: 5px;
-    box-shadow: #d25c4a 0 0 30px;
+.product-item:hover {
+    transform: scale(1.05);
 }
-.close-modal{
-    background-color: #6262af;
-    width: 100px;
-    height: 30px;
-    margin-right: 50px;
-    border-radius: 5px;
-    box-shadow: #5252d5 0 0 30px;
-}
-.product-id{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    width: 300px;
-    margin-bottom: 5px;
-}
-.product-name{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    width: 300px;
-    margin-bottom: 5px;
-}
-.product-price{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    width: 300px;
-    margin-bottom: 5px;
-}
-.product-category{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    width: 300px;
-    margin-bottom: 5px;
-}
+
 .product-image {
-    width: 200px;
-    height: 150px;
-    border: #272909 1px solid;
-    margin-right: 50px;
-    margin-left: 50px;
-    margin-bottom: 5px;
-}
-.delete-button{
-    background-color: #d65959;
-    width: 100px;
-    height: 30px;
-    margin-left: 50px;
-    margin-bottom: 5px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
     border-radius: 5px;
-    box-shadow: #df0404 0 0 30px;
-}
-.edit-button{
-    background-color: #5252d5;
-    width: 100px;
-    height: 30px;
-    margin-right: 50px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    box-shadow: #df0404 0 0 30px;
 }
 
-.shadow-type-1 {
-    box-shadow: red -10px -10px 5px;
+.delete-button,
+.edit-button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #d65959;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button {
+    background-color: #5252d5;
+}
+
+.delete-button:hover {
+    background-color: #c24444;
+}
+
+.edit-button:hover {
+    background-color: #4040b3;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .product-item {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    #mainList {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .add-btn {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    #modal-add,
+    #modal-edit {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    #modal-add,
+    #modal-edit {
+        width: 100%;
+    }
+
+    .product-item {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .delete-button,
+    .edit-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
 }
 
 @keyframes fadeInSlideUp {
@@ -178,7 +191,7 @@ li {
     animation: fadeOutSlideDown 0.4s ease-in;
 }
 
-#snackbar {
+#snackbar, #snackbar1 {
     visibility: hidden;
     min-width: 250px;
     margin-left: -125px;
@@ -193,46 +206,14 @@ li {
     bottom: 30px;
 }
 
-#snackbar.show {
+#snackbar.show, #snackbar1.show {
     visibility: visible;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-#snackbar1 {
-    visibility: hidden;
-    min-width: 250px;
-    margin-left: -125px;
-    background-color: #17bf10;
-    color: #fff;
-    text-align: center;
-    border-radius: 2px;
-    padding: 16px;
-    position: fixed;
-    z-index: 1;
-    left: 50%;
-    bottom: 30px;
-}
-
-
-#snackbar1.show {
-    visibility: visible;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
-@-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
 }
 
 @keyframes fadein {
     from {bottom: 0; opacity: 0;}
     to {bottom: 30px; opacity: 1;}
-}
-
-@-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
 }
 
 @keyframes fadeout {
@@ -264,4 +245,16 @@ li {
 .btn-renReset{
     color: white;
     background-color: #d2212c;
+}
+
+.edit-button {
+    background-color: #5252d5;
+}
+
+.delete-button:hover {
+    background-color: #c24444;
+}
+
+.edit-button:hover {
+    background-color: #4040b3;
 }
