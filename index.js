@@ -40,12 +40,12 @@ function renderList() { //оновити list в HTML
         image.alt = "image";
 
         const btnDelete = document.createElement("button");
-        btnDelete.classList.add("btnDelete");
-        //подописувати, що треба
+        btnDelete.classList.add("delete-button");
+        btnDelete.innerHTML = "Видалити"
 
         const btnEdit = document.createElement("button");
-        btnEdit.classList.add("btnEdit");
-        //подописувати, що треба
+        btnEdit.classList.add("edit-button");
+        btnEdit.innerHTML = "Редагувати"
 
         li.appendChild(id);
         li.appendChild(name);
@@ -70,7 +70,7 @@ function addProduct() {
 function saveProduct(){
     let div = document.querySelector("#modal");
     let newProduct = {
-        id: div.querySelector("#product-id").value.trim(),
+        id: generateId(),
         name: div.querySelector("#product-name").value.trim(),
         price: div.querySelector("#product-price").value.trim(),
         category: div.querySelector("#product-category").value.trim(),
