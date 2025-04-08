@@ -18,27 +18,56 @@ header {
     text-align: justify;
     position: relative;
 }
-ul li .product-item{
-        background-color: black;
-        color: white;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        border: 1px solid #ae6d14;
-
-        margin: 80px;
-    }
-
-
-
-.product-id{
-    background-color: goldenrod;
+.product-item{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+    border: 1px solid #ae6d14;
+    width: 300px;
 }
 
-img {
-    width: 250px;
-    height: auto;
+.product-id{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    width: 300px;
+    margin-bottom: 5px;
+}
+.product-name{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    width: 300px;
+    margin-bottom: 5px;
+}
+.product-price{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    width: 300px;
+    margin-bottom: 5px;
+}
+.product-category{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    width: 300px;
+    margin-bottom: 5px;
+}
+.product-image {
+    width: 200px;
+    height: 150px;
     border: #272909 1px solid;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 5px;
+}
+.delete-button{
+    width: 100px;
+    height: 30px;
+    margin-left: 50px;
+}
+.edit-button{
+    width: 100px;
+    height: 30px;
+    margin-right: 50px;
 }
 
 .shadow-type-1 {

@@ -25,26 +25,26 @@ function renderList() { //оновити list в HTML
     products.forEach(item => {
         const li = document.createElement("li");
         const div = document.createElement("div");
-        div.classList.add("item");
+        div.classList.add("product-item");
 
         const id = document.createElement("span");
         id.classList.add("product-id")
         id.textContent = item.id;
 
         const name = document.createElement("span");
-        name.classList.add("name")
+        name.classList.add("product-name")
         name.textContent = item.name;
 
         const cost = document.createElement("span");
-        cost.classList.add("cost")
+        cost.classList.add("product-price")
         cost.textContent = item.cost;
 
         const category = document.createElement("span");
-        category.classList.add("category")
+        category.classList.add("product-category")
         category.textContent = item.category;
 
         const image = document.createElement("img");
-        image.classList.add("img");
+        image.classList.add("product-image");
         image.src = item.image;
         image.alt = "image";
 
