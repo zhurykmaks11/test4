@@ -29,7 +29,7 @@ function renderList() { //оновити list в HTML
 
         const cost = document.createElement("span");
         cost.classList.add("product-price")
-        cost.textContent = "Cost: " + item.cost;
+        cost.textContent = "Cost: " + item.price;
 
         const category = document.createElement("span");
         category.classList.add("product-category")
@@ -98,27 +98,69 @@ function deleteProduct(id){
     renderList();
 }
 
-function editProduct(id){
-    console.log(id);
-    //дописати функціонал зміни
-    const productToEdit = products.filter(product => product.id === id);
-
+function editProduct(productId){
     let div = document.getElementById("modal-edit");
     div.style.display = "block";
 
     let btnSave = document.createElement("button");
-    btnSave.classList.add(".save-product");
+    btnSave.classList.add("save-product");
     btnSave.innerHTML = "Зберегти";
-    btnSave.onclick = () => saveEditedProduct(id);
+    console.log("ID before: " + productId);
+    btnSave.onclick = () => saveEditedProduct(productId);
 
     let btnClose = document.createElement("button");
     btnClose.classList.add(".close-modal");
     btnClose.innerHTML = "Зберегти";
     btnClose.onclick = () => closeEditProduct();
 
+    let productToEdit = products.find(product => product.id === productId);
+
+    let name = div.querySelector(".product-name");
+    let price = div.querySelector(".product-price");
+    let category = div.querySelector(".product-category");
+
+    name.innerHTML = productToEdit.name;
+    price.innerHTML = productToEdit.price;
+    category.innerHTML = productToEdit.category;
+
     // оновити фільтри
     // оновити ціну
     renderList();
+}
+
+function saveEditedProduct(productId){
+    console.log("ID after: " + productId);
+    let div = document.querySelector("#modal-edit");
+
+    let editedProduct = {
+        id: productId,
+        name: div.querySelector(".product-name").value.trim(),
+        price: div.querySelector(".product-price").value.trim(),
+        category: div.querySelector(".product-category").value.trim(),
+        image: "./images/img.png",
+    };
+    // let editedProduct = {
+    //     id: "0",
+    //     name: "chiken",
+    //     price: 9999,
+    //     category: "food",
+    //     image: "./images/img.png",
+    // };
+    console.log(productId)
+    let index = products.findIndex(product => product.id === productId);
+    if (index !== -1) {
+        products[index] = editedProduct;
+    }
+
+    renderList();
+    // оновити фільтри
+    // оновити ціну
+    div.style.display = "none";
+}
+
+function closeEditProduct(){
+    let div = document.getElementById("modal-edit");
+    div.style.display = "none";
 }
 
 function saveProduct(){
