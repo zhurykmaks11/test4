@@ -61,6 +61,29 @@ function renderList() { //оновити list в HTML
     })
 }
 
+function addProduct() {
+    let div = document.getElementById("modal-add");
+    div.style.display = "block";
+}
+
+function generateId(){
+    let step = 0;
+    let isAvailable = true;
+
+    while (isAvailable) {
+        isAvailable = false;
+        products.forEach(product => {
+            if (product.id === step.toString()) {
+                isAvailable = true;
+            }
+        })
+        ++step;
+    }
+    --step;
+
+    return step.toString();
+}
+
 function deleteProduct(id){
     console.log(id);
 
@@ -78,39 +101,28 @@ function deleteProduct(id){
 function editProduct(id){
     console.log(id);
     //дописати функціонал зміни
+    const productToEdit = products.filter(product => product.id === id);
 
+    let div = document.getElementById("modal-edit");
+    div.style.display = "block";
+
+    let btnSave = document.createElement("button");
+    btnSave.classList.add(".save-product");
+    btnSave.innerHTML = "Зберегти";
+    btnSave.onclick = () => saveEditedProduct(id);
+
+    let btnClose = document.createElement("button");
+    btnClose.classList.add(".close-modal");
+    btnClose.innerHTML = "Зберегти";
+    btnClose.onclick = () => closeEditProduct();
+
+    // оновити фільтри
+    // оновити ціну
     renderList();
 }
 
-function generateId(){
-    let step = 0;
-    let isAvailable = true;
-
-    while (isAvailable) {
-        isAvailable = false;
-        products.forEach(product => {
-            console.log(product.id);
-            if (product.id === step.toString()) {
-                isAvailable = true;
-            }
-        })
-        ++step;
-    }
-
-    --step;
-
-    console.log("----------------------------------")
-
-    return step.toString();
-}
-
-function addProduct() {
-    let div = document.getElementById("modal");
-    div.style.display = "block";
-}
-
 function saveProduct(){
-    let div = document.querySelector("#modal");
+    let div = document.querySelector("#modal-add");
     let newProduct = {
         id: generateId(),
         name: div.querySelector(".product-name").value.trim(),
@@ -128,6 +140,6 @@ function saveProduct(){
 }
 
 function closeProduct(){
-    let div = document.getElementById("modal");
+    let div = document.getElementById("modal-add");
     div.style.display = "none";
 }

@@ -2,7 +2,10 @@ header {
     background-color: goldenrod;
     color: white;
 }
-#modal{
+#modal-add{
+    display: none;
+}
+#modal-edit{
     display: none;
 }
 #mainList {
