@@ -19,7 +19,7 @@ function renderList() { //оновити list в HTML
     listProduct.innerHTML = "";
     filteredProducts.forEach(item =>  {
         const li = document.createElement("li");
-        li.classList.add("product-item");
+        li.classList.add("product-item", "animate-in");
 
         const id = document.createElement("span");
         id.classList.add("product-id")
@@ -91,23 +91,41 @@ function generateId(){
 
     return step.toString();
 }
-
+//delete
 function deleteProduct(id){
-    console.log(id);
-
-    const productToDelete = products.find(product => product.id === id);
-
-    if (!productToDelete) return null;
-
-    products = products.filter(product => product.id !== id);
-    // оновити фільтри
-    // оновити ціну
+    // console.log(id);
+    //
+    // const productToDelete = products.find(product => product.id === id);
+    //
+    // if (!productToDelete) return null;
+    //
+    // products = products.filter(product => product.id !== id);
+    // // оновити фільтри
+    // // оновити ціну
     filteredProducts = [...products];
+    const index = products.findIndex(product => product.id === id);
+    if (index === -1) return;
+
+    const liToRemove = [...listProduct.children].find(
+        li => li.querySelector(".product-id").textContent.includes(id)
+    );
+
+    if (liToRemove) {
+        liToRemove.classList.remove("animate-in");
+        liToRemove.classList.add("animate-out");
+
+        setTimeout(() => {
+            products.splice(index, 1);
+            filteredProducts = [...products];
+            renderAll();
+            renderList();
+        }, 400);
+    }
     renderAll()
     renderList();
     closeEditProduct()
 }
-
+//edit
 function editProduct(productId){
     let div = document.getElementById("modal-edit");
     div.style.display = "block";
