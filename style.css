@@ -16,6 +16,7 @@ li {
     margin-bottom: 30px;
 }
 .product-item{
+    padding: 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -59,11 +60,13 @@ li {
     width: 100px;
     height: 30px;
     margin-left: 50px;
+    margin-bottom: 5px;
 }
 .edit-button{
     width: 100px;
     height: 30px;
     margin-right: 50px;
+    margin-bottom: 5px;
 }
 
 .shadow-type-1 {

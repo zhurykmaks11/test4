@@ -70,10 +70,10 @@ function addProduct() {
 function saveProduct(){
     let div = document.querySelector("#modal");
     let newProduct = {
-        id: generateId(),
-        name: div.querySelector("#product-name").value.trim(),
-        price: div.querySelector("#product-price").value.trim(),
-        category: div.querySelector("#product-category").value.trim(),
+        id: "ID: " + generateId(),
+        name: "Name: " + div.querySelector("#product-name").value.trim(),
+        price: "Price: " + div.querySelector("#product-price").value.trim(),
+        category: "Category: " + div.querySelector("#product-category").value.trim(),
         image: "./images/img.png",
     };
 
