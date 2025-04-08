@@ -83,7 +83,25 @@ function editProduct(id){
 }
 
 function generateId(){
-    return products.length;
+    let step = 0;
+    let isAvailable = true;
+
+    while (isAvailable) {
+        isAvailable = false;
+        products.forEach(product => {
+            console.log(product.id);
+            if (product.id === step.toString()) {
+                isAvailable = true;
+            }
+        })
+        ++step;
+    }
+
+    --step;
+
+    console.log("----------------------------------")
+
+    return step.toString();
 }
 
 function addProduct() {
