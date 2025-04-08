@@ -219,4 +219,34 @@ function renderFilters() {
 function renderAll(){
     renderFilters()
     updateTotalCost()
+    renderSorters()
+}
+function renderSorters() {
+    const sortersContainer = document.getElementById("sorters");
+    sortersContainer.innerHTML = "";
+
+    const btnPrice = document.createElement("button");
+    btnPrice.textContent = "Сортувати за ціною";
+    btnPrice.onclick = () => {
+        filteredProducts.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+        renderList();
+    };
+
+    const btnCreate = document.createElement("button");
+    btnCreate.textContent = "Сортувати за ID";
+    btnCreate.onclick = () => {
+        filteredProducts.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+        renderList();
+    };
+
+    const btnReset = document.createElement("button");
+    btnReset.textContent = "Скинути сортування";
+    btnReset.onclick = () => {
+        filteredProducts = [...products];
+        renderList();
+    };
+
+    sortersContainer.appendChild(btnPrice);
+    sortersContainer.appendChild(btnCreate);
+    sortersContainer.appendChild(btnReset);
 }
