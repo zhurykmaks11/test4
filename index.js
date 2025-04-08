@@ -3,29 +3,20 @@
 const listProduct = document.getElementById("mainList");
 
 let products = Array.from(listProduct.children).map(li => {
-    const div = li.querySelector(".product-item");
     return {
-        id: div.querySelector(".product-id").textContent,
-        name: div.querySelector(".product-name").textContent,
-        cost: div.querySelector(".product-price").textContent,
-        category: div.querySelector(".product-category").textContent,
-        image: div.querySelector("img").src,
+        id: li.querySelector(".product-id").textContent,
+        name: li.querySelector(".product-name").textContent,
+        cost: li.querySelector(".product-price").textContent,
+        category: li.querySelector(".product-category").textContent,
+        image: li.querySelector("img").src,
     };
 });
-
-console.log(products);
-
-products[0].id = 5;
-
-console.log(products);
-
 
 function renderList() { //оновити list в HTML
     listProduct.innerHTML = "";
     products.forEach(item => {
         const li = document.createElement("li");
-        const div = document.createElement("div");
-        div.classList.add("product-item");
+        li.classList.add("product-item");
 
         const id = document.createElement("span");
         id.classList.add("product-id")
@@ -56,15 +47,13 @@ function renderList() { //оновити list в HTML
         btnEdit.classList.add("btnEdit");
         //подописувати, що треба
 
-        div.appendChild(id);
-        div.appendChild(name);
-        div.appendChild(cost);
-        div.appendChild(category);
-        div.appendChild(image);
-        div.appendChild(btnDelete);
-        div.appendChild(btnEdit);
-
-        li.appendChild(div);
+        li.appendChild(id);
+        li.appendChild(name);
+        li.appendChild(cost);
+        li.appendChild(category);
+        li.appendChild(image);
+        li.appendChild(btnDelete);
+        li.appendChild(btnEdit);
         listProduct.appendChild(li);
     })
 }
