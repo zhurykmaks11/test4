@@ -136,7 +136,16 @@ function editProduct(productId){
 function saveEditedProduct(productId){
     console.log("ID after: " + productId); //чомусь не передається атрибут productId
     let div = document.querySelector("#modal-edit");
+    const name = div.querySelector(".product-name");
+    const price = div.querySelector(".product-price");
+    const category = div.querySelector(".product-category");
 
+    if (!name.checkValidity() || !price.checkValidity() || !category.checkValidity()) {
+        name.reportValidity();
+        price.reportValidity();
+        category.reportValidity();
+        return;
+    }
     let editedProduct = {
         id: productId,
         name: div.querySelector(".product-name").value.trim(),
@@ -164,6 +173,15 @@ function closeEditProduct(){
 
 function saveProduct(){
     let div = document.querySelector("#modal-add");
+    const name = div.querySelector(".product-name");
+    const price = div.querySelector(".product-price");
+    const category = div.querySelector(".product-category");
+    if (!name.checkValidity() || !price.checkValidity() || !category.checkValidity()) {
+        name.reportValidity();
+        price.reportValidity();
+        category.reportValidity();
+        return;
+    }
     let newProduct = {
         id: generateId(),
         name: div.querySelector(".product-name").value.trim(),

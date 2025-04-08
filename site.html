@@ -19,18 +19,18 @@
 </div>
 <div id="modal-add">
     <h2>Новий товар</h2>
-    <label>Назва товару: <input type="text" class="product-name"></label><br>
-    <label>Ціна товару: <input type="text" class="product-price"></label><br>
-    <label>Категорія товару: <input type="text" class="product-category"></label><br>
+    <label>Назва товару: <input type="text" class="product-name" required></label><br>
+    <label>Ціна товару: <input type="number" class="product-price" required min="0" step="0.01"></label><br>
+    <label>Категорія товару: <input type="text" class="product-category" required></label><br>
     <button class="save-product" onclick = "saveProduct()">Зберегти</button>
     <button class="close-modal" onclick = "closeProduct()">Закрити</button>
 </div>
 
 <div id="modal-edit">
     <h2>Новий товар</h2>
-    <label>Назва товару: <input type="text" class="product-name"></label><br>
-    <label>Ціна товару: <input type="text" class="product-price"></label><br>
-    <label>Категорія товару: <input type="text" class="product-category"></label><br>
+    <label>Назва товару: <input type="text" class="product-name" required></label><br>
+    <label>Ціна товару: <input type="number" class="product-price" required min="0" step="0.01"></label><br>
+    <label>Категорія товару: <input type="text" class="product-category" required></label><br>
     <button class="save-product" onclick = "saveEditedProduct()">Зберегти</button>
     <button class="close-modal" onclick = "closeEditProduct()">Закрити</button>
 </div>
