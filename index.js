@@ -20,19 +20,20 @@ function renderList() { //оновити list в HTML
 
         const id = document.createElement("span");
         id.classList.add("product-id")
-        id.textContent = item.id;
+        id.textContent = "ID: " + item.id;
+
 
         const name = document.createElement("span");
         name.classList.add("product-name")
-        name.textContent = item.name;
+        name.textContent = "Name: " + item.name;
 
         const cost = document.createElement("span");
         cost.classList.add("product-price")
-        cost.textContent = item.cost;
+        cost.textContent = "Cost: " + item.cost;
 
         const category = document.createElement("span");
         category.classList.add("product-category")
-        category.textContent = item.category;
+        category.textContent = "Category: " + item.category;
 
         const image = document.createElement("img");
         image.classList.add("product-image");
@@ -42,10 +43,12 @@ function renderList() { //оновити list в HTML
         const btnDelete = document.createElement("button");
         btnDelete.classList.add("delete-button");
         btnDelete.innerHTML = "Видалити"
+        btnDelete.onclick = () => deleteProduct(item.id);
 
         const btnEdit = document.createElement("button");
         btnEdit.classList.add("edit-button");
         btnEdit.innerHTML = "Редагувати"
+        btnEdit.onclick = () => editProduct(item.id);
 
         li.appendChild(id);
         li.appendChild(name);
@@ -56,6 +59,15 @@ function renderList() { //оновити list в HTML
         li.appendChild(btnEdit);
         listProduct.appendChild(li);
     })
+}
+
+function deleteProduct(id){
+    console.log(id);
+
+}
+
+function editProduct(id){
+    console.log(id);
 }
 
 function generateId(){
@@ -70,10 +82,10 @@ function addProduct() {
 function saveProduct(){
     let div = document.querySelector("#modal");
     let newProduct = {
-        id: "ID: " + generateId(),
-        name: "Name: " + div.querySelector("#product-name").value.trim(),
-        price: "Price: " + div.querySelector("#product-price").value.trim(),
-        category: "Category: " + div.querySelector("#product-category").value.trim(),
+        id: generateId(),
+        name: div.querySelector(".product-name").value.trim(),
+        price: div.querySelector(".product-price").value.trim(),
+        category: div.querySelector(".product-category").value.trim(),
         image: "./images/img.png",
     };
 
