@@ -1,12 +1,53 @@
+body{
+    background-color: #e6c0b9;
+}
 header {
+    padding: 20px;
     background-color: goldenrod;
     color: white;
+    box-shadow: 5px 5px 5px goldenrod;
+    margin: 20px;
+
 }
 #modal-add{
+    width: 500px;
+    margin: 20px;
+    background-color: Goldenrod;
+    padding: 10px;
     display: none;
+    float: left;
+    box-shadow: red 1px 1px 10px;
+    border-radius: 5px;
+    color: white;
+}
+.container{
+    width: 500px;
+    margin: 20px;
+    gap: 10px;
+    display: flex;
+    padding: 40px;
+    background-color: Goldenrod;
+    flex-direction: column;
+    box-shadow: red 1px 1px 10px;
+    border-radius: 5px;
+    .add-btn{
+        width: 200px;
+        border-radius: 5px;
+        background: coral;
+        box-shadow: red 1px 1px 10px;
+        color: white;
+    }
 }
 #modal-edit{
+    margin: 20px;
+    padding: 10px;
     display: none;
+    width: 500px;
+    border-radius: 5px;
+    background: coral;
+    box-shadow: red 1px 1px 10px;
+    color: white;
+
 }
 #mainList {
     list-style-type: none;
@@ -19,6 +60,7 @@ li {
     margin-bottom: 30px;
 }
 .product-item{
+    background-color: Goldenrod;
     padding: 10px;
     display: flex;
     flex-direction: row;
@@ -26,6 +68,26 @@ li {
     border: 1px solid #ae6d14;
     width: 300px;
     height: auto;
+    color: white;
+    border-radius: 5px;
+    box-shadow: #df0404 0 0 30px;
+}
+.save-product{
+    background-color: #c57569;
+    width: 100px;
+    height: 30px;
+    margin-right: 50px;
+
+    border-radius: 5px;
+    box-shadow: #d25c4a 0 0 30px;
+}
+.close-modal{
+    background-color: #6262af;
+    width: 100px;
+    height: 30px;
+    margin-right: 50px;
+    border-radius: 5px;
+    box-shadow: #5252d5 0 0 30px;
 }
 .product-id{
     font-family: 'Open Sans', sans-serif;
@@ -60,21 +122,28 @@ li {
     margin-bottom: 5px;
 }
 .delete-button{
+    background-color: #d65959;
     width: 100px;
     height: 30px;
     margin-left: 50px;
     margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: #df0404 0 0 30px;
 }
 .edit-button{
+    background-color: #5252d5;
     width: 100px;
     height: 30px;
     margin-right: 50px;
     margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: #df0404 0 0 30px;
 }
 
 .shadow-type-1 {
     box-shadow: red -10px -10px 5px;
 }
+
 @keyframes fadeInSlideUp {
     0% {
         opacity: 0;
