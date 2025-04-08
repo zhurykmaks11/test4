@@ -1,7 +1,7 @@
 `use strict`
 
 const listProduct = document.getElementById("mainList");
-
+let filteredProducts = [];
 let products = Array.from(listProduct.children).map(li => {
     return {
         id: li.querySelector(".product-id").textContent,
@@ -10,11 +10,14 @@ let products = Array.from(listProduct.children).map(li => {
         category: li.querySelector(".product-category").textContent,
         image: li.querySelector("img").src,
     };
+
+    filteredProducts = [...products];
+    renderAll()
 });
 
 function renderList() { //оновити list в HTML
     listProduct.innerHTML = "";
-    products.forEach(item => {
+    filteredProducts.forEach(item =>  {
         const li = document.createElement("li");
         li.classList.add("product-item");
 
@@ -59,8 +62,10 @@ function renderList() { //оновити list в HTML
         li.appendChild(btnDelete);
         li.appendChild(btnEdit);
         listProduct.appendChild(li);
-        updateTotalCost()
+
     })
+
+    updateTotalCost()
 }
 
 function addProduct() {
@@ -97,7 +102,8 @@ function deleteProduct(id){
     products = products.filter(product => product.id !== id);
     // оновити фільтри
     // оновити ціну
-    updateTotalCost()
+    filteredProducts = [...products];
+    renderAll()
     renderList();
     closeEditProduct()
 }
@@ -143,7 +149,8 @@ function saveEditedProduct(productId){
     if (index !== -1) {
         products[index] = editedProduct;
     }
-    updateTotalCost()
+    filteredProducts = [...products];
+    renderAll()
     renderList();
     // оновити фільтри
     // оновити ціну
@@ -166,7 +173,8 @@ function saveProduct(){
     };
 
     products.push(newProduct);
-    updateTotalCost()
+    filteredProducts = [...products];
+    renderAll();
     renderList();
     // оновити фільтри
     // оновити ціну
@@ -177,8 +185,38 @@ function closeProduct(){
     let div = document.getElementById("modal-add");
     div.style.display = "none";
 }
-
+//total-cost
 function updateTotalCost() {
     const total = products.reduce((sum, p) => sum + parseFloat(p.price), 0);
     document.getElementById("total-cost").textContent = `Загальна вартість: ${total.toFixed(2)} грн`;
+}
+//filter
+function renderFilters() {
+    const filtersContainer = document.getElementById("filters");
+    filtersContainer.innerHTML = "";
+
+    const uniqueCategories = [...new Set(products.map(p => p.category))];
+
+    uniqueCategories.forEach(cat => {
+        const btn = document.createElement("button");
+        btn.textContent = cat;
+        btn.onclick = () => {
+            filteredProducts = products.filter(p => p.category === cat);
+            renderList();
+        };
+        filtersContainer.appendChild(btn);
+    });
+
+    const resetBtn = document.createElement("button");
+    resetBtn.textContent = "Скинути фільтр";
+    resetBtn.onclick = () => {
+        filteredProducts = [...products];
+        renderList();
+    };
+    filtersContainer.appendChild(resetBtn);
+}
+
+function renderAll(){
+    renderFilters()
+    updateTotalCost()
 }
