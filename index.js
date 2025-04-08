@@ -59,6 +59,7 @@ function renderList() { //оновити list в HTML
         li.appendChild(btnDelete);
         li.appendChild(btnEdit);
         listProduct.appendChild(li);
+        updateTotalCost()
     })
 }
 
@@ -96,7 +97,7 @@ function deleteProduct(id){
     products = products.filter(product => product.id !== id);
     // оновити фільтри
     // оновити ціну
-
+    updateTotalCost()
     renderList();
     closeEditProduct()
 }
@@ -142,7 +143,7 @@ function saveEditedProduct(productId){
     if (index !== -1) {
         products[index] = editedProduct;
     }
-
+    updateTotalCost()
     renderList();
     // оновити фільтри
     // оновити ціну
@@ -165,7 +166,7 @@ function saveProduct(){
     };
 
     products.push(newProduct);
-
+    updateTotalCost()
     renderList();
     // оновити фільтри
     // оновити ціну
@@ -175,4 +176,9 @@ function saveProduct(){
 function closeProduct(){
     let div = document.getElementById("modal-add");
     div.style.display = "none";
+}
+
+function updateTotalCost() {
+    const total = products.reduce((sum, p) => sum + parseFloat(p.price), 0);
+    document.getElementById("total-cost").textContent = `Загальна вартість: ${total.toFixed(2)} грн`;
 }
