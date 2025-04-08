@@ -63,7 +63,14 @@ function renderList() { //оновити list в HTML
 
 function deleteProduct(id){
     console.log(id);
-    //дописати функціонал видалення
+
+    const productToDelete = products.find(product => product.id === id);
+
+    if (!productToDelete) return null;
+
+    products = products.filter(product => product.id !== id);
+    // оновити фільтри
+    // оновити ціну
 
     renderList();
 }
