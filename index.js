@@ -63,11 +63,16 @@ function renderList() { //оновити list в HTML
 
 function deleteProduct(id){
     console.log(id);
+    //дописати функціонал видалення
 
+    renderList();
 }
 
 function editProduct(id){
     console.log(id);
+    //дописати функціонал зміни
+
+    renderList();
 }
 
 function generateId(){
